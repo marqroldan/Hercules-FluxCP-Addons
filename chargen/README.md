@@ -2,7 +2,7 @@
 
 ![preview1](http://i.imgur.com/LKgpW9T.png)![preview1](http://i.imgur.com/06ITYK8.png)
 
-This is based on KeyWorld's [@vthibault [Vincent Thibault](https://github.com/vthibault) ROChargenPHP. I just made some little tweaks to work some things out. The only difference is that it's made into a FluxCP addon instead of having it on a different folder, so you don't have to write down your server's credentials again. 
+This is based on KeyWorld's [@vthibault [Vincent Thibault]](https://github.com/vthibault) ROChargenPHP. I just made some little tweaks to work some things out. The only difference is that it's made into a FluxCP addon instead of having it on a different folder, so you don't have to write down your server's credentials again. 
 
 # Installation
 
