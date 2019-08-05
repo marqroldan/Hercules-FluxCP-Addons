@@ -1,0 +1,5 @@
+__MACOSX
+.DS_Store
+
+chargen/grf/*
+!chargen/grf/DATA.ini
