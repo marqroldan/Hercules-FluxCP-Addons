@@ -6,7 +6,7 @@ This is based on KeyWorld's [@vthibault [Vincent Thibault]](https://github.com/v
 
 # Installation
 
-1. After extracting the ZIP file inside the addons folder, put your own GRFs inside 'addons\chargen\modules\chargen\client'. And also, edit the DATA.ini to list your GRFs.
+1. After extracting the ZIP file inside the addons folder, put your own GRFs inside 'addons\chargen\grf'. And also, edit the DATA.ini to list your GRFs.
 2. You're good to go!
 3. There are some settings inside the addon.php (addons\chargen\config\addon.php):
 
