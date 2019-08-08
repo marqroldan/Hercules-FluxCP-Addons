@@ -24,7 +24,6 @@ function generateTemp($dir) {
 }
 
 $ava_BGDir = FLUX_ADDON_DIR."/".$this->moduleName."/data/avatar/";
-
 $avatarTMP_dir = FLUX_DATA_DIR.'/tmp/avatar/';
 
 generateTemp($avatarTMP_dir);
@@ -63,6 +62,7 @@ Client::init();
 
 // Renderer for Avatar
 require_once(  __ROOT__ . 'render/class.CharacterRender.php' );
+require_once(  __ROOT__ . 'loaders/Bmp.php');
 $chargen                 = new CharacterRender();
 $char_detail['action_'] = constant('CharacterRender::'.$char_detail['action_']);
 

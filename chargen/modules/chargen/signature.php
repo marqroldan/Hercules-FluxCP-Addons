@@ -2,11 +2,9 @@
 if (!defined('FLUX_ROOT')) exit;
 define('__ROOT__', dirname(__FILE__) . '/'); 
 
-
-
 $name_ = $params->get('name');
 $request = -1;
-if (!empty($params->get('request'))) {
+if ($params->get('request')!='') {
 	$name_ = $params->get('request');
 	$request = 2;
 }
@@ -57,14 +55,16 @@ require_once( __ROOT__ . 'core/class.Debug.php');
  
  
 DB::$path 			  =     __ROOT__ . "db/"     ;
-Client::$path         =     __ROOT__ . "client/" ;   // Define where your client path is (where you put your grfs, data, etc.)
+Client::$path         =     FLUX_ADDON_DIR."/".$this->moduleName."/grf/" ;   // Define where your client path is (where you put your grfs, data, etc.)
 Client::$data_ini     =     Flux::config("Data_INI")           ;   // The name of your DATA.INI (to locate your grfs, if not set: grfs will not be loaded)
 Client::$AutoExtract  =     Flux::config('AutoExtract')                 ;   // If true, client will save extracted files from GRF into the data folder.
 Client::init();
 // Renderer for Avatar
 require_once(  __ROOT__ . 'render/class.CharacterRender.php' );
+require_once(  __ROOT__ . 'loaders/Bmp.php');
 $chargen                 = new CharacterRender();
 $char_detail['action_'] = constant('CharacterRender::'.$char_detail['action_']);
+
 
 if ($char_detail['preview']) {
 		$chargen->changeData($char_detail);
