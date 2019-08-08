@@ -68,7 +68,7 @@ $char_detail['action_'] = constant('CharacterRender::'.$char_detail['action_']);
 
 if ($char_detail['preview']) {
 		$chargen->changeData($char_detail);
-		//header('Content-type:image/png');
+		header('Content-type:image/png');
 		imagepng($chargen->render(1));
 		exit();
 }
