@@ -121,7 +121,7 @@ function generateImage($name_, $_post, $server, $char_detail, $char_details, $ch
 	$char = $sth->fetchAll();
 	$char = $char[0];
 	
-	if(count($char)) {
+	if($char) {
 		$char_detail['name']			 = $char->name;
 		$char_detail['guild_id'] 		 = $char->guild_id; 		
 		$char_detail['class'] 			 = $char->class; 			
