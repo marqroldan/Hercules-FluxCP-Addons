@@ -66,7 +66,7 @@ $chargen                 = new CharacterRender();
 $char_detail['action_'] = constant('CharacterRender::'.$char_detail['action_']);
 
 
-if ($char_detail['preview']) {
+if ((count($char_detail)-4 == $char_detail_count) && array_key_exists('preview',$char_detail) && ($char_detail['preview'])) {
 		$chargen->changeData($char_detail);
 		header('Content-type:image/png');
 		imagepng($chargen->render(1));
