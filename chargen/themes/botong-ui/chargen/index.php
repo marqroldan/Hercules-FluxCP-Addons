@@ -74,7 +74,19 @@
 	}
 </script>
 <?php if($params->get("saved")): ?>
-<p class="blue">Successfully saved.</p>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+	Successfully saved. <a href="<?php echo $this->url('chargen',$params->get('save_type'), array('request'=>$params->get('save_name'))) ?>" target="_blank">View it here.</a>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<?php else: ?>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	Either an error has occurred or the generated image wasn't saved. Please try again.
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
 <?php endif ?>
 
 <!-- Character Avatar -->

@@ -77,8 +77,8 @@ elseif (file_exists($char_details)) {
 	
 	
 	if((time() - filemtime($char_ava)) > (Flux::config('ChargenCacheTime') * 60)) {
-		if (generateImage($name_, $_POST, $server, $char_detail, $char_details, $char_ava, $session, $chargen))
-			$this->redirect($this->url('chargen'));
+		$genRes = generateImage($name_, $_POST, $server, $char_detail, $char_details, $char_ava, $session, $chargen);
+		$this->redirect($this->url('chargen','index',array('saved' => $genRes, 'save_type' => 'avatar', 'save_name' => $name_ )));
 	}
 	else {
 		header('Content-type:image/png');
@@ -87,8 +87,8 @@ elseif (file_exists($char_details)) {
 	}
 }
 elseif (!file_exists($char_details) && (count($_POST) > 0)) {
-		if (generateImage($name_, $_POST, $server, $char_detail, $char_details, $char_ava, $session, $chargen))
-			$this->redirect($this->url('chargen'));
+		$genRes = generateImage($name_, $_POST, $server, $char_detail, $char_details, $char_ava, $session, $chargen);
+		$this->redirect($this->url('chargen','index',array('saved' => $genRes, 'save_type' => 'avatar', 'save_name' => $name_ )));
 }
 else {
 	$session->setMessageData("Avatar not available.");
@@ -151,7 +151,6 @@ function generateImage($name_, $_post, $server, $char_detail, $char_details, $ch
 				fclose($fp);
 			}
 			imagepng($chargen->render(0),$char_ava);
-			$session->setMessageData("Successfully saved.");
 			return true;
 		}
 		else {
@@ -161,8 +160,7 @@ function generateImage($name_, $_post, $server, $char_detail, $char_details, $ch
 		}
 	}
 	else {
-		$session->setMessageData("Character is not found in your account.");
-		return true;
+		return false;
 	}
 }	
 ?>
